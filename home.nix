@@ -25,6 +25,7 @@
 
       plugins = [
         inputs.hyprland-plugins.packages."${pkgs.system}".hyprbars
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
 
       ];
 
@@ -32,7 +33,7 @@
          "$mod" = "SUPER";
     bind =
       [
-        "$mod, Q, exec, kitty"
+        "$mod, Q, exec, $terminal"
         "$mod, F, exec, firefox"
         ", Print, exec, grimblast copy area"
       ]
@@ -95,6 +96,7 @@
   home.packages = with pkgs; [
 
     heroic
+    bottles
     vesktop
     vencord
     neofetch
