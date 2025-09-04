@@ -32,6 +32,7 @@
          "$mod" = "SUPER";
     bind =
       [
+        "$mod, Q, exec, kitty"
         "$mod, F, exec, firefox"
         ", Print, exec, grimblast copy area"
       ]
@@ -75,6 +76,18 @@
   
   
   # Github End__________________________________________________________________________
+
+
+    programs.neovim = {
+       enable = true;
+     };
+
+     programs.helix = {
+       
+       enable = true;
+       defaultEditor = true;
+       settings.theme = "merionette";
+     };
 
 
   # The home.packages option allows you to install Nix packages into your

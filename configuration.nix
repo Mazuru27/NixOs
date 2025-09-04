@@ -141,7 +141,6 @@
     gdu
     git 
     gnome-disk-utility
-    helix
     mangohud
     neofetch
     nixd
