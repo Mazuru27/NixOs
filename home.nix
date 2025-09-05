@@ -18,23 +18,37 @@
    # Hyprland Start--------------------------------------------------------------------
 
   programs.kitty.enable = true;
+  programs.rofi.enable = true;
+  programs.eww.enable = true;
+  services.swaync.enable = true;
+  services.swww.enable = true;
 
   wayland.windowManager.hyprland = {
     # allow home manager to configure hyprland
       enable = true;
+      systemd.enable= true;
 
       plugins = [
         inputs.hyprland-plugins.packages."${pkgs.system}".hyprbars
         inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        inputs.hy3.packages.x86_64-linux.hy3
 
       ];
 
       settings = {
          "$mod" = "SUPER";
+         "$terminal" = "kitty";
+         "$fileManager" = "dolphin";
+         monitor = [
+          "DP-1, 1920x1080@180, 0x0,1.5"
+          "HDMI-A-1, 1920x1080@60, 1920x0, 1"
+          ];
     bind =
       [
         "$mod, Q, exec, $terminal"
         "$mod, F, exec, firefox"
+        "$mod, C, exec, killactive"
+        "$mod, M, exec, exit,"
         ", Print, exec, grimblast copy area"
       ]
       ++ (
@@ -50,14 +64,14 @@
           9)
       );
         
-      };
+    };
       
   };
   
   
    # Linking the hyperland config
    # 
-     home.file.".config/hypr".source = ./hypr;
+     # home.file.".config/hypr".source = ./hypr;
 
     # Optional, hint Electron apps to use Wayland:
    home.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -95,12 +109,13 @@
   # environment.
   home.packages = with pkgs; [
 
-    heroic
-    bottles
-    vesktop
-    vencord
-    neofetch
-    nnn #Terminal file manager
+    #My programs
+
+      heroic
+      bottles
+      vesktop
+      vencord
+      nnn #Terminal file manager
 
     # archives
 
@@ -112,6 +127,8 @@
     # utils
       fzf
       eza
+      neofetch
+      grimblast
 
     # misc
       file
@@ -132,7 +149,8 @@
 
       btop
       iotop
-      iftop 
+      iftop
+    # Hyprland programs  
       
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
