@@ -36,19 +36,86 @@
       ];
 
       settings = {
+
+        # MY PROGRAMS #
+        # 
          "$mod" = "SUPER";
          "$terminal" = "kitty";
          "$fileManager" = "dolphin";
+         "$menu" = "rofi --show drun --show-icons";
+         
+         ## LOOK AN FEEL ##
+          general = {
+            "gaps_in" = 5;
+            "gaps_out" = 20;
+            "border_size" = 2;
+                "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+                "col.inactive_border" = "rgba(595959aa)";
+                "resize_on_border" = true;
+                "layout" = "hy3";
+          };
+          
+          decoration = {
+            rounding = 5;
+              blur = {
+               enable = true;
+               size = 7;
+               passes = 4;
+               noise = "0.008";
+               contrast = "0.891";
+               brightness = "0.8";
+                 "input_methods" = "yes";
+            };
+            shadow = {
+              enabled = false;
+            };
+          };
+
+          animations = {
+               enabled = "yes";
+		             "first_launch_animation" = "no";
+
+                bezier = [
+                  
+                 "windowIn, 0.06, 0.71, 0.25, 1"
+                "windowResize, 0.04, 0.67, 0.38, 1"
+	              "workspacesMove, 0.1, 0.75, 0.15, 1"
+	              	];
+
+                animation = [
+                "windowsIn, 1, 3, windowIn, slide" #popin 20%
+              "windowsOut, 1, 3, windowIn, slide" #popin 70%
+            "windowsMove, 1, 2.5, windowResize"
+          "fade, 1, 3, default"
+        "workspaces, 1, 4, workspacesMove, slidevert"
+	  	"layers, 1, 4, windowIn, slide"
+	  	];
+   };
+
+         
+
+         # MONITOR SETUP #
+         # 
          monitor = [
-          "DP-1, 1920x1080@180, 0x0,1.5"
-          "HDMI-A-1, 1920x1080@60, 1920x0, 1"
+          "DP-1, 1920x1080@180, auto, 1.25"
+          
+          "HDMI-A-1, 1920x1080@60, auto, 1"
           ];
+          
+
+          # AUTOSTART AFTER STARTUP #
+          #
+            "exec-once" = "swaync";
+
+            
+       # KEYBINDINGS  #     
     bind =
-      [
+      [ 
         "$mod, Q, exec, $terminal"
         "$mod, F, exec, firefox"
-        "$mod, C, exec, killactive"
-        "$mod, M, exec, exit,"
+        "$mod, C, killactive,"
+        "$mod, M, exit,"
+        "$mod, F1, exec, $menu"
         ", Print, exec, grimblast copy area"
       ]
       ++ (
