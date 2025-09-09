@@ -146,6 +146,7 @@
     nixd
     protonplus
     protontricks
+    scilab-bin
     vim
     webcord
     wget

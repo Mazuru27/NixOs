@@ -26,14 +26,68 @@
       # (you may encounter issues if you dont do the same for hyprland)
       inputs.hyprland.follows = "hyprland";
       };
-  };
+  
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, hy3,  ... }: {
+  astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.astal.follows = "astal";
+    };
+  
+};
+  outputs = inputs@{ nixpkgs, home-manager, hyprland, hy3, ags, astal, ... }: 
+    let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    in {
+
+      ####Plugins#####
+          packages.${system}.default = pkgs.stdenv.mkDerivation { 
+      pname = "my-shell";
+
+      src = ./.;
+
+      nativeBuildInputs = with pkgs; [
+        wrapGAppsHook
+        gobject-introspection
+        ags.packages.${system}.default
+      ];
+
+      buildInputs = [
+        pkgs.glib
+        pkgs.gjs
+        astal.io
+        astal.astal4
+        # packages like astal.battery or pkgs.libsoup_4
+      ];
+
+      installPhase = ''
+        ags bundle app.ts $out/bin/my-shell
+      '';
+
+      preFixup = ''
+        gappsWrapperArgs+=(
+          --prefix PATH : ${pkgs.lib.makeBinPath ([
+            # runtime executables
+          ])}
+        )
+      '';
+    };
+    
     nixosConfigurations = {
 
       mazuru = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linuxl";
+        
+        system = "x86_64-linux";
         specialArgs = {inherit inputs;};
+        
+    
+       ####MODULES#### 
         modules = [
           ./configuration.nix
 

@@ -52,13 +52,13 @@
                 "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
                 "col.inactive_border" = "rgba(595959aa)";
                 "resize_on_border" = true;
-                "layout" = "hy3";
+                layout = "hy3";
           };
           
           decoration = {
             rounding = 5;
               blur = {
-               enable = true;
+               enabled = true;
                size = 7;
                passes = 4;
                noise = "0.008";
@@ -97,7 +97,7 @@
          # MONITOR SETUP #
          # 
          monitor = [
-          "DP-1, 1920x1080@180, auto, 1.25"
+          "DP-1, 1920x1080@180, auto, 1"
           
           "HDMI-A-1, 1920x1080@60, auto, 1"
           ];
@@ -132,9 +132,11 @@
       );
         
     };
+    extraConfig = ''
+  plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
+'';
       
   };
-  
   
    # Linking the hyperland config
    # 
