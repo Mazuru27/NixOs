@@ -1,0 +1,53 @@
+[33mcommit 3652919f9a81f24e84d30356617d33b68d2ffaa3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Wed Sep 10 20:34:31 2025 +0530
+
+    Devshells for elephant and AGS
+
+[33mcommit eacb876d63eaa03d9dfa98505ef10aaaa91f8074[m[33m ([m[1;31mgithub/main[m[33m)[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Wed Sep 10 20:32:36 2025 +0530
+
+    Added elephant and AGS pkgs
+
+[33mcommit 58852c21302e443b696a565cee6d977018991b88[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Wed Sep 10 20:31:36 2025 +0530
+
+    Added elephant and AGS files
+
+[33mcommit c27046f79d1cd9006f789f99041e401b74b8e090[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Tue Sep 9 22:26:20 2025 +0530
+
+    Added Astal and Ags for widgets
+
+[33mcommit f9a33ef56be6d3bc557ccbcb07b59ee24c8d7823[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Tue Sep 9 01:01:23 2025 +0530
+
+    Changes to home.nix setting up hyprland
+
+[33mcommit 1b103cf21028424a00fdcd34e4a495ef6cc88b21[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Sat Sep 6 03:38:09 2025 +0530
+
+    Hyperland configuring moved to Home.nix
+
+[33mcommit 0b870f0d002fd6d00c43a05d28f05efc0bf81a30[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Thu Sep 4 15:06:03 2025 +0530
+
+    Testing
+
+[33mcommit bb44d6c7ed46b55495eedb9dfa363bb8637db179[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Thu Sep 4 13:13:26 2025 +0530
+
+    Changes for hyperland
+
+[33mcommit 40965dae59dd5333ee9425771a706034d565f9a4[m
+Author: MD-Maz <mdmazuru27@gmail.com>
+Date:   Wed Sep 3 10:54:16 2025 +0530
+
+    First Commit
