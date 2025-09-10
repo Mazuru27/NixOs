@@ -18,7 +18,8 @@
    # Hyprland Start--------------------------------------------------------------------
 
   programs.kitty.enable = true;
-  programs.rofi.enable = true;
+  imports = [inputs.walker.homeManagerModules.default];
+  programs.rofi.enable = false;
   programs.eww.enable = true;
   services.swaync.enable = true;
   services.swww.enable = true;
@@ -172,6 +173,28 @@
        defaultEditor = true;
        settings.theme = "merionette";
      };
+
+     programs.walker = {
+  enable = true;
+  runAsService = true;
+
+  # All options from the config.toml can be used here.
+  config = {
+    placeholders."default".input = "Example";
+    providers.prefixes = [
+      {provider = "websearch"; prefix = "+";}
+      {provider = "providerlist"; prefix = "_";}
+    ];
+    keybinds.quick_activate = ["F1" "F2" "F3"];
+  };
+
+  # If this is not set the default styling is used.
+  theme.style = ''
+    * {
+      color: #dcd7ba;
+    }
+  '';
+};
 
 
   # The home.packages option allows you to install Nix packages into your

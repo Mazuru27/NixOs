@@ -149,6 +149,7 @@
     scilab-bin
     vim
     webcord
+    wl-clipboard
     wget
   ];
 
