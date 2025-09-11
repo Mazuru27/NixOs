@@ -7,6 +7,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+     # walltone.url = "github:Kasper24/walltone";
+
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -103,24 +105,24 @@
 
     devShells = forAllSystems (pkgs: {
 
-      ags = pkgs.callPackage /etc/nixos/.shells/ags.nix {inherit self;};
+      ags = pkgs.callPackage ./.shells/ags.nix {inherit self;};
       
-      elephant = pkgs.callPackage /etc/nixos/.shells/elephant.nix {inherit self;};
+      elephant = pkgs.callPackage ./.shells/elephant.nix {inherit self;};
     });
 
     packages = forAllSystems (pkgs: {
 
       # AGS Package
-      ags = pkgs.callPackage /etc/nixos/.pakages/ags.nix {};
+      ags = pkgs.callPackage ./.pakages/ags.nix {};
 
       # Main elephant binary
-      elephant = pkgs.callPackage /etc/nixos/.pakages/elephant.nix {};
+      elephant = pkgs.callPackage ./.pakages/elephant.nix {};
 
       # Providers package - builds all providers with same Go toolchain
-      elephant-providers = pkgs.callPackage /etc/nixos/.pakages/elephant-providers.nix {};
+      elephant-providers = pkgs.callPackage ./.pakages/elephant-providers.nix {};
 
       # Combined package with elephant + providers
-      elephant-with-providers = pkgs.callPackage /etc/nixos/.pakages/elephant-with-providers.nix {};
+      elephant-with-providers = pkgs.callPackage ./.pakages/elephant-with-providers.nix {};
 
     });
   };

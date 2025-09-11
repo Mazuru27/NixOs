@@ -32,6 +32,8 @@
     nix.gc.dates =  "daily";
     nix.gc.options = "--delete-older-than-15d";
     nix.settings.auto-optimise-store = true; 
+    nix.package = pkgs.nixVersions.latest;
+
 
   time.timeZone = "Asia/Kolkata";
 
@@ -142,8 +144,10 @@
     git 
     gnome-disk-utility
     mangohud
+    mpvpaper
     neofetch
     nixd
+    nodejs_24
     protonplus
     protontricks
     scilab-bin
@@ -151,6 +155,11 @@
     webcord
     wl-clipboard
     wget
+
+
+    # inputs.walltone.packages.${pkgs.system}.default
+
+    
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
