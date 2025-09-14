@@ -43,6 +43,7 @@
     };
 
     walker.url = "github:abenz1267/walker";
+    polymc.url = "github:PolyMC/PolyMC";
   };
 
   outputs = inputs @ {

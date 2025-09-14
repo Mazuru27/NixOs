@@ -136,6 +136,8 @@
   # Github
    programs.git.enable = true;
 
+   nixpkgs.overlays = [ inputs.polymc.overlay ];
+
   # Packages installed 
   # To search, Run:  $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -144,11 +146,14 @@
     git 
     gnome-disk-utility
     mangohud
+    mangojuice
     mpvpaper
     neofetch
     nixd
     nodejs_24
+    pavucontrol
     protonplus
+    polymc
     protontricks
     scilab-bin
     vim
@@ -162,6 +167,13 @@
     
   ];
 
+  fonts.packages = [
+           
+           pkgs.nerd-fonts._0xproto
+           pkgs.nerd-fonts.droid-sans-mono
+         ];
+
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

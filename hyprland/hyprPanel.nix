@@ -5,6 +5,15 @@
     # Configure and theme almost all options from the GUI.
     # See 'https://hyprpanel.com/configuration/settings.html'.
     # Default: <same as gui>
+    #
+      # theme = {
+      #           # paste content of https://github.com/Jas-SinghFSU/HyprPanel/blob/2c0c66a/themes/${cfg.settings.theme.name}.json
+                
+                
+                
+      #         };
+    
+    
     settings = {
 
       # Configure bar layouts for monitors.
